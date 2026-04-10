@@ -1,0 +1,869 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>社会福祉士のみちしるべ｜成年後見・資格活用ガイド</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;500;600&family=Noto+Sans+JP:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #1a1a18;
+    --ink-mid: #4a4a46;
+    --ink-light: #8a8a82;
+    --ink-faint: #c8c8c0;
+    --paper: #fafaf6;
+    --paper-warm: #f4f4ee;
+    --paper-card: #ffffff;
+    --accent: #2d6a4f;
+    --accent-light: #e8f5ee;
+    --accent-mid: #52b788;
+    --serif: 'Noto Serif JP', serif;
+    --sans: 'Noto Sans JP', sans-serif;
+    --border: 1px solid #e0e0d8;
+    --radius: 4px;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: var(--sans);
+    background: var(--paper);
+    color: var(--ink);
+    font-size: 15px;
+    line-height: 1.8;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  a { color: inherit; text-decoration: none; }
+
+  /* ── HEADER ── */
+  .site-header {
+    background: var(--paper-card);
+    border-bottom: var(--border);
+    padding: 0 2rem;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+  .header-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 60px;
+  }
+  .logo {
+    display: flex;
+    align-items: baseline;
+    gap: 10px;
+  }
+  .logo-main {
+    font-family: var(--serif);
+    font-size: 17px;
+    font-weight: 600;
+    color: var(--accent);
+    letter-spacing: 0.02em;
+  }
+  .logo-sub {
+    font-size: 11px;
+    color: var(--ink-light);
+    letter-spacing: 0.05em;
+  }
+  .site-nav {
+    display: flex;
+    gap: 24px;
+    font-size: 13px;
+    color: var(--ink-mid);
+  }
+  .site-nav a:hover { color: var(--accent); }
+  .nav-cta {
+    background: var(--accent);
+    color: #fff !important;
+    padding: 6px 16px;
+    border-radius: 2px;
+    font-size: 12px;
+    letter-spacing: 0.03em;
+  }
+  .nav-cta:hover { opacity: 0.88; }
+
+  /* ── PAGE LAYOUT ── */
+  .page-wrap {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 2rem;
+  }
+
+  /* ── LIST VIEW ── */
+  #list-view { display: block; }
+  #article-view { display: none; }
+
+  /* ── HERO ── */
+  .hero {
+    padding: 3.5rem 0 2.5rem;
+    border-bottom: var(--border);
+  }
+  .hero-eyebrow {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 1rem;
+  }
+  .badge {
+    display: inline-block;
+    background: var(--accent-light);
+    color: var(--accent);
+    border: 1px solid var(--accent-mid);
+    border-radius: 2px;
+    font-size: 11px;
+    padding: 2px 10px;
+    letter-spacing: 0.04em;
+    font-weight: 500;
+  }
+  .badge-gray {
+    background: var(--paper-warm);
+    color: var(--ink-mid);
+    border: 1px solid var(--ink-faint);
+  }
+  .hero-title {
+    font-family: var(--serif);
+    font-size: 26px;
+    font-weight: 600;
+    line-height: 1.55;
+    max-width: 680px;
+    margin-bottom: 0.8rem;
+    letter-spacing: 0.02em;
+  }
+  .hero-desc {
+    font-size: 14px;
+    color: var(--ink-mid);
+    max-width: 600px;
+    line-height: 1.8;
+    margin-bottom: 1.2rem;
+  }
+  .hero-meta {
+    font-size: 12px;
+    color: var(--ink-light);
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+  .hero-meta span::before {
+    content: '—';
+    margin-right: 6px;
+    color: var(--ink-faint);
+  }
+  .hero-read-btn {
+    display: inline-block;
+    margin-top: 1.25rem;
+    background: var(--accent);
+    color: #fff;
+    font-size: 13px;
+    padding: 9px 22px;
+    border-radius: 2px;
+    cursor: pointer;
+    border: none;
+    letter-spacing: 0.04em;
+    transition: opacity 0.15s;
+  }
+  .hero-read-btn:hover { opacity: 0.85; }
+
+  /* ── CONTENT GRID ── */
+  .content-grid {
+    display: grid;
+    grid-template-columns: minmax(0,1fr) 260px;
+    gap: 0;
+    padding: 2rem 0 4rem;
+  }
+
+  /* ── ARTICLE LIST ── */
+  .article-list {
+    padding-right: 3rem;
+    border-right: var(--border);
+  }
+  .section-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 1.5rem;
+    padding-bottom: 0.75rem;
+    border-bottom: var(--border);
+  }
+  .section-label {
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    color: var(--ink-light);
+    text-transform: uppercase;
+  }
+  .article-card {
+    padding: 1.25rem 0;
+    border-bottom: var(--border);
+    cursor: pointer;
+    transition: background 0.1s;
+  }
+  .article-card:last-child { border-bottom: none; }
+  .ac-meta {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 0.5rem;
+  }
+  .ac-title {
+    font-family: var(--serif);
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 1.55;
+    margin-bottom: 0.4rem;
+    transition: color 0.15s;
+  }
+  .article-card:hover .ac-title { color: var(--accent); }
+  .ac-desc {
+    font-size: 13px;
+    color: var(--ink-mid);
+    line-height: 1.75;
+    margin-bottom: 0.5rem;
+  }
+  .ac-footer {
+    font-size: 11px;
+    color: var(--ink-light);
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .coming-soon .ac-title { color: var(--ink-light); }
+  .coming-soon:hover .ac-title { color: var(--ink-mid); cursor: default; }
+  .draft-note {
+    display: inline-block;
+    font-size: 11px;
+    color: var(--ink-light);
+    background: var(--paper-warm);
+    border: 1px solid var(--ink-faint);
+    border-radius: 2px;
+    padding: 1px 8px;
+  }
+
+  /* ── SIDEBAR ── */
+  .sidebar {
+    padding-left: 2rem;
+  }
+  .sidebar-block {
+    margin-bottom: 2rem;
+  }
+  .sidebar-label {
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--ink-light);
+    margin-bottom: 0.75rem;
+    padding-bottom: 0.5rem;
+    border-bottom: var(--border);
+  }
+  .cat-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 13px;
+    padding: 0.35rem 0;
+    color: var(--ink-mid);
+    cursor: pointer;
+    border-bottom: 1px solid transparent;
+    transition: color 0.15s;
+  }
+  .cat-item:hover { color: var(--accent); }
+  .cat-count {
+    font-size: 11px;
+    background: var(--paper-warm);
+    border: 1px solid var(--ink-faint);
+    border-radius: 20px;
+    padding: 1px 8px;
+    color: var(--ink-light);
+  }
+  .tag-cloud {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+  .tag {
+    display: inline-block;
+    font-size: 11px;
+    padding: 3px 10px;
+    border: 1px solid var(--ink-faint);
+    border-radius: 2px;
+    color: var(--ink-mid);
+    background: var(--paper-card);
+  }
+  .about-box {
+    background: var(--accent-light);
+    border: 1px solid var(--accent-mid);
+    border-radius: var(--radius);
+    padding: 1rem;
+    font-size: 12px;
+    color: var(--ink-mid);
+    line-height: 1.7;
+  }
+  .about-box strong {
+    display: block;
+    font-size: 13px;
+    color: var(--accent);
+    margin-bottom: 0.4rem;
+    font-weight: 500;
+  }
+
+  /* ── ARTICLE VIEW ── */
+  .article-back {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 13px;
+    color: var(--ink-mid);
+    cursor: pointer;
+    margin: 1.5rem 0;
+    border: none;
+    background: none;
+    padding: 0;
+    transition: color 0.15s;
+  }
+  .article-back:hover { color: var(--accent); }
+  .article-layout {
+    display: grid;
+    grid-template-columns: minmax(0,1fr) 240px;
+    gap: 4rem;
+    padding-bottom: 4rem;
+  }
+  .article-header {
+    padding-bottom: 1.5rem;
+    border-bottom: var(--border);
+    margin-bottom: 2rem;
+  }
+  .article-header .badge { margin-bottom: 0.75rem; }
+  .article-title {
+    font-family: var(--serif);
+    font-size: 24px;
+    font-weight: 600;
+    line-height: 1.55;
+    letter-spacing: 0.02em;
+    margin-bottom: 0.8rem;
+  }
+  .article-meta {
+    font-size: 12px;
+    color: var(--ink-light);
+    display: flex;
+    gap: 16px;
+    align-items: center;
+  }
+  .article-body {
+    font-size: 15px;
+    line-height: 1.9;
+    color: var(--ink);
+  }
+  .article-body h2 {
+    font-family: var(--serif);
+    font-size: 19px;
+    font-weight: 600;
+    margin: 2.5rem 0 0.75rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid var(--accent-light);
+    color: var(--ink);
+  }
+  .article-body h3 {
+    font-family: var(--serif);
+    font-size: 16px;
+    font-weight: 500;
+    margin: 1.75rem 0 0.5rem;
+    color: var(--accent);
+  }
+  .article-body p { margin-bottom: 1.1rem; }
+  .article-body ul, .article-body ol {
+    margin: 0.75rem 0 1.1rem 1.4rem;
+  }
+  .article-body li { margin-bottom: 0.4rem; }
+  .article-body strong { font-weight: 500; color: var(--ink); }
+  .step-box {
+    background: var(--paper-warm);
+    border: var(--border);
+    border-left: 3px solid var(--accent);
+    border-radius: 0 var(--radius) var(--radius) 0;
+    padding: 1rem 1.25rem;
+    margin: 1.25rem 0;
+  }
+  .step-box .step-num {
+    font-size: 11px;
+    letter-spacing: 0.08em;
+    color: var(--accent);
+    font-weight: 500;
+    text-transform: uppercase;
+    margin-bottom: 0.25rem;
+  }
+  .step-box .step-title {
+    font-family: var(--serif);
+    font-size: 15px;
+    font-weight: 500;
+    margin-bottom: 0.4rem;
+  }
+  .step-box .step-body {
+    font-size: 13px;
+    color: var(--ink-mid);
+    line-height: 1.75;
+  }
+  .info-note {
+    background: var(--accent-light);
+    border: 1px solid var(--accent-mid);
+    border-radius: var(--radius);
+    padding: 0.85rem 1.1rem;
+    font-size: 13px;
+    color: var(--ink-mid);
+    margin: 1.25rem 0;
+    line-height: 1.7;
+  }
+  .info-note::before {
+    content: '💡 ';
+  }
+  .article-toc {
+    background: var(--paper-card);
+    border: var(--border);
+    border-radius: var(--radius);
+    padding: 1rem 1.25rem;
+    margin-bottom: 2rem;
+    font-size: 13px;
+  }
+  .toc-label {
+    font-size: 11px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--ink-light);
+    margin-bottom: 0.6rem;
+  }
+  .article-toc ol {
+    margin-left: 1rem;
+    color: var(--ink-mid);
+    line-height: 1.9;
+  }
+  .article-sidebar {
+    font-size: 13px;
+  }
+  .art-sidebar-block {
+    background: var(--paper-card);
+    border: var(--border);
+    border-radius: var(--radius);
+    padding: 1rem;
+    margin-bottom: 1.5rem;
+  }
+  .art-sidebar-block h4 {
+    font-size: 11px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--ink-light);
+    margin-bottom: 0.6rem;
+    padding-bottom: 0.5rem;
+    border-bottom: var(--border);
+  }
+  .related-item {
+    padding: 0.5rem 0;
+    border-bottom: 1px solid var(--paper-warm);
+    cursor: pointer;
+    line-height: 1.5;
+    color: var(--ink-mid);
+    transition: color 0.15s;
+  }
+  .related-item:hover { color: var(--accent); }
+  .related-item:last-child { border-bottom: none; }
+
+  /* ── FOOTER ── */
+  .site-footer {
+    background: var(--paper-card);
+    border-top: var(--border);
+    padding: 1.5rem 2rem;
+  }
+  .footer-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 12px;
+    color: var(--ink-light);
+  }
+
+  @media (max-width: 768px) {
+    .content-grid, .article-layout { grid-template-columns: 1fr; }
+    .article-list { padding-right: 0; border-right: none; }
+    .sidebar { padding-left: 0; border-top: var(--border); padding-top: 2rem; margin-top: 1rem; }
+    .hero-title { font-size: 21px; }
+    .site-nav .nav-item { display: none; }
+  }
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="site-header">
+  <div class="header-inner">
+    <div class="logo" onclick="showList()" style="cursor:pointer">
+      <span class="logo-main">社会福祉士のみちしるべ</span>
+      <span class="logo-sub">成年後見・資格活用ガイド</span>
+    </div>
+    <nav class="site-nav">
+      <a onclick="showList()" style="cursor:pointer" class="nav-item">ホーム</a>
+      <a class="nav-item">カテゴリ</a>
+      <a class="nav-item">プロフィール</a>
+      <a class="nav-cta">お問い合わせ</a>
+    </nav>
+  </div>
+</header>
+
+<!-- ===== LIST VIEW ===== -->
+<div id="list-view">
+  <div class="page-wrap">
+
+    <!-- HERO -->
+    <section class="hero">
+      <div class="hero-eyebrow">
+        <span class="badge">注目記事</span>
+        <span class="badge badge-gray">成年後見</span>
+      </div>
+      <h1 class="hero-title">社会福祉士合格後、成年後見人になるまでのロードマップ</h1>
+      <p class="hero-desc">「資格を取ればすぐに後見人になれる」と思っていませんか？実際には複数の研修・登録ステップがあり、最短でも4年ほどかかります。この記事では合格直後から「ぱあとなあ」登録・初受任まで、必要な手順を一つひとつ丁寧に解説します。</p>
+      <div class="hero-meta">
+        <span>2025年4月</span>
+        <span>読了約10分</span>
+      </div>
+      <button class="hero-read-btn" onclick="showArticle('main')">この記事を読む →</button>
+    </section>
+
+    <!-- CONTENT GRID -->
+    <div class="content-grid">
+      <main class="article-list">
+        <div class="section-header">
+          <span class="section-label">すべての記事</span>
+        </div>
+
+        <!-- Article 1 -->
+        <div class="article-card" onclick="showArticle('main')">
+          <div class="ac-meta">
+            <span class="badge">成年後見</span>
+            <span class="badge badge-gray">ロードマップ</span>
+          </div>
+          <div class="ac-title">社会福祉士合格後、成年後見人になるまでのロードマップ</div>
+          <div class="ac-desc">合格発表後の登録証申請から、日本社会福祉士会への入会、基礎研修Ⅰ〜Ⅲ、養成研修、「ぱあとなあ」登録、初受任までの全ステップを解説。</div>
+          <div class="ac-footer">
+            <span>2025年4月</span>
+            <span>読了約10分</span>
+          </div>
+        </div>
+
+        <!-- Article 2 -->
+        <div class="article-card" onclick="showArticle('seido')">
+          <div class="ac-meta">
+            <span class="badge">基礎知識</span>
+          </div>
+          <div class="ac-title">成年後見制度とは何か：社会福祉士が押さえておくべき基礎知識</div>
+          <div class="ac-desc">法定後見と任意後見の違い、後見人の役割と権限、財産管理・身上監護の実務概要をわかりやすく整理します。</div>
+          <div class="ac-footer">
+            <span>2025年3月</span>
+            <span>読了約6分</span>
+          </div>
+        </div>
+
+        <!-- Article 3 (coming soon) -->
+        <div class="article-card coming-soon">
+          <div class="ac-meta">
+            <span class="badge badge-gray">実務</span>
+            <span class="draft-note">準備中</span>
+          </div>
+          <div class="ac-title">市民後見人と専門職後見人の違い：社会福祉士はどちらを目指す？</div>
+          <div class="ac-desc">選択肢の整理と、社会福祉士の強みが活きる場面、副業・本業それぞれのリアルな見通しを解説。</div>
+          <div class="ac-footer">
+            <span>公開予定</span>
+          </div>
+        </div>
+
+        <!-- Article 4 (coming soon) -->
+        <div class="article-card coming-soon">
+          <div class="ac-meta">
+            <span class="badge badge-gray">収入</span>
+            <span class="draft-note">準備中</span>
+          </div>
+          <div class="ac-title">成年後見人の報酬はいくら？家庭裁判所が決める報酬の相場を解説</div>
+          <div class="ac-desc">月額基本報酬・財産額に応じた加算・副業としての現実的な年収まで、数字で把握できるよう整理します。</div>
+          <div class="ac-footer">
+            <span>公開予定</span>
+          </div>
+        </div>
+      </main>
+
+      <!-- SIDEBAR -->
+      <aside class="sidebar">
+        <div class="sidebar-block">
+          <div class="sidebar-label">カテゴリ</div>
+          <div class="cat-item">成年後見 <span class="cat-count">2</span></div>
+          <div class="cat-item">基礎知識 <span class="cat-count">1</span></div>
+          <div class="cat-item">研修・登録 <span class="cat-count">1</span></div>
+          <div class="cat-item">実務・収入 <span class="cat-count">0</span></div>
+        </div>
+        <div class="sidebar-block">
+          <div class="sidebar-label">タグ</div>
+          <div class="tag-cloud">
+            <span class="tag">成年後見</span>
+            <span class="tag">ぱあとなあ</span>
+            <span class="tag">基礎研修</span>
+            <span class="tag">家庭裁判所</span>
+            <span class="tag">任意後見</span>
+            <span class="tag">報酬</span>
+            <span class="tag">キャリア</span>
+          </div>
+        </div>
+        <div class="sidebar-block">
+          <div class="about-box">
+            <strong>このサイトについて</strong>
+            社会福祉士の合格後のキャリアや成年後見実務に関する情報を、現場目線で丁寧に発信しています。
+          </div>
+        </div>
+      </aside>
+    </div>
+  </div>
+</div>
+
+<!-- ===== ARTICLE VIEW ===== -->
+<div id="article-view">
+  <div class="page-wrap">
+    <button class="article-back" onclick="showList()">← 記事一覧へ戻る</button>
+
+    <!-- MAIN ARTICLE -->
+    <div id="art-main" class="article-layout" style="display:none">
+      <article>
+        <header class="article-header">
+          <span class="badge">成年後見</span>
+          <h1 class="article-title">社会福祉士合格後、成年後見人になるまでのロードマップ</h1>
+          <div class="article-meta">
+            <span>2025年4月</span>
+            <span>読了約10分</span>
+            <span>成年後見・キャリア</span>
+          </div>
+        </header>
+
+        <div class="article-toc">
+          <div class="toc-label">目次</div>
+          <ol>
+            <li>はじめに：合格≠すぐ後見人</li>
+            <li>STEP 0：試験合格後の登録証申請</li>
+            <li>STEP 1：日本社会福祉士会への入会</li>
+            <li>STEP 2：基礎研修Ⅰ・Ⅱ・Ⅲを修了する</li>
+            <li>STEP 3：成年後見人材育成研修を受講する</li>
+            <li>STEP 4：名簿登録研修を受講・修了する</li>
+            <li>STEP 5：「ぱあとなあ」候補者名簿へ登録する</li>
+            <li>STEP 6：家庭裁判所からの選任を待つ</li>
+            <li>全体スケジュールのまとめ</li>
+          </ol>
+        </div>
+
+        <div class="article-body">
+
+          <h2>はじめに：合格≠すぐ後見人</h2>
+          <p>社会福祉士の国家試験に合格すると、「これで成年後見人として活動できる」と思う方も多いかもしれません。しかし実際には、合格はあくまでもスタートラインです。専門職後見人として家庭裁判所から選任されるには、複数の研修を段階的に受講し、登録手続きを経る必要があります。</p>
+          <p>流れ全体を把握すると、<strong>最短でもおよそ4年程度</strong>かかることが一般的です（地域の研修頻度や受講ペースにより前後します）。長いと感じるかもしれませんが、後見業務は本人の財産と生活に深く関わる責任ある仕事。その分だけ、段階的な知識・倫理観の習得が求められているのです。</p>
+          <div class="info-note">この記事では「第三者後見人（専門職後見人）」として活動を目指す社会福祉士向けのルートを解説しています。市民後見人の手順はこれと異なります。</div>
+
+          <h2>STEP 0：試験合格後の登録証申請</h2>
+          <p>試験に合格しても、すぐに「社会福祉士」を名乗ることはできません。まず厚生労働大臣への登録が必要です。</p>
+          <div class="step-box">
+            <div class="step-num">Step 0</div>
+            <div class="step-title">登録証の申請（合格発表後）</div>
+            <div class="step-body">合格通知と一緒に届く申請書類に必要事項を記入し、収入印紙（15,000円）と登録手数料（4,050円）を添付して簡易書留で提出します。書類に不備がなければ約1か月で登録証が届きます。登録証が届いて初めて、正式に社会福祉士として活動できます。</div>
+          </div>
+
+          <h2>STEP 1：日本社会福祉士会への入会</h2>
+          <p>専門職後見人を目指すには、日本社会福祉士会（および所属する都道府県社会福祉士会）の正会員になることが必須条件です。都道府県社会福祉士会に入会すると、自動的に日本社会福祉士会にも登録されます。</p>
+          <div class="step-box">
+            <div class="step-num">Step 1</div>
+            <div class="step-title">都道府県社会福祉士会への入会</div>
+            <div class="step-body">
+              各都道府県の社会福祉士会に入会申請を行います。<br>
+              <strong>費用の目安：</strong>初年度は入会金＋年会費がかかります。年会費は都道府県によって異なります（目安：8,000〜15,000円程度）。詳細は日本社会福祉士会の公式サイトで確認を。
+            </div>
+          </div>
+
+          <h2>STEP 2：基礎研修Ⅰ・Ⅱ・Ⅲを修了する</h2>
+          <p>入会後、まず受講するのが「基礎研修」です。これは成年後見に特化したものではなく、社会福祉士としての実践能力を体系的に高めるための研修です。</p>
+          <div class="step-box">
+            <div class="step-num">Step 2</div>
+            <div class="step-title">基礎研修Ⅰ → Ⅱ → Ⅲ（各1年ごと）</div>
+            <div class="step-body">
+              基礎研修は1〜3まであり、<strong>同一年度に1つしか受講できません</strong>。そのため、3つすべてを修了するには最短でも3年かかります。各研修は1〜2日程度の集合研修＋レポートなどで構成されることが多いです。<br>この研修の修了が、次のステップ（成年後見人材育成研修）の受講要件になります。
+            </div>
+          </div>
+
+          <h2>STEP 3：成年後見人材育成研修を受講する</h2>
+          <p>基礎研修を修了したら、いよいよ成年後見に特化した研修へ進みます。「成年後見人材育成研修」は、成年後見制度を活用した相談援助に必要な知識を習得するための研修です。</p>
+          <div class="step-box">
+            <div class="step-num">Step 3</div>
+            <div class="step-title">成年後見人材育成研修（4日間）</div>
+            <div class="step-body">
+              日本社会福祉士会または都道府県社会福祉士会が主催する4日間の研修です。この研修自体では後見人になれませんが、次の「名簿登録研修」を受講するための必須要件となっています。年1回程度の実施が多いため、タイミングを逃さないよう注意が必要です。
+            </div>
+          </div>
+
+          <h2>STEP 4：名簿登録研修を受講・修了する</h2>
+          <p>後見人等候補者名簿に登録するための、最終関門となる研修です。</p>
+          <div class="step-box">
+            <div class="step-num">Step 4</div>
+            <div class="step-title">名簿登録研修（2日間）＋修了試験</div>
+            <div class="step-body">
+              専門職後見人として身につけるべき知識・技術を2日間で集中的に学びます。研修の最後には<strong>修了試験</strong>が実施され、合格することで名簿への登録申請資格が得られます。この研修も年1回程度の実施が一般的です。
+            </div>
+          </div>
+
+          <h2>STEP 5：「ぱあとなあ」候補者名簿へ登録する</h2>
+          <p>修了試験に合格したら、日本社会福祉士会権利擁護センター「ぱあとなあ」の成年後見人等候補者名簿に登録します。登録窓口は各都道府県の社会福祉士会です。</p>
+          <div class="step-box">
+            <div class="step-num">Step 5</div>
+            <div class="step-title">「ぱあとなあ」への登録</div>
+            <div class="step-body">
+              各都道府県の担当窓口にメールアドレスを伝えると登録名簿が送られてきます。必要事項を入力して返送することで、候補者として登録されます。また、<strong>団体補償制度・賠償責任保険への加入</strong>も求められる場合があります（費用は都道府県によって異なります）。
+            </div>
+          </div>
+
+          <h2>STEP 6：家庭裁判所からの選任を待つ</h2>
+          <p>名簿に登録されると、家庭裁判所が後見開始の申し立てを受理した際に、「ぱあとなあ」に登録した社会福祉士が後見人候補者として選任される可能性が生まれます。</p>
+          <p>申し立て自体は本人・家族・市区町村長などが行い、裁判所が事案の内容（財産額・争いの有無・本人の状況など）を踏まえて後見人を選びます。介護・医療的な問題を抱えるケースでは、社会福祉士が選ばれやすい傾向があります。</p>
+          <div class="info-note">選任されるまでの期間は地域や事案によって異なります。登録後すぐに受任できるとは限らないため、継続的な研修参加やネットワーク形成も大切です。</div>
+
+          <h2>全体スケジュールのまとめ</h2>
+          <ul>
+            <li><strong>合格直後</strong>：登録証申請（約1か月で取得）</li>
+            <li><strong>入会</strong>：都道府県社会福祉士会へ入会</li>
+            <li><strong>1〜3年目</strong>：基礎研修Ⅰ・Ⅱ・Ⅲを1年ずつ受講</li>
+            <li><strong>4年目以降</strong>：成年後見人材育成研修（4日間）受講</li>
+            <li><strong>同年または翌年</strong>：名簿登録研修（2日間）＋修了試験</li>
+            <li><strong>試験合格後</strong>：「ぱあとなあ」名簿へ登録</li>
+            <li><strong>登録後</strong>：家庭裁判所からの選任を待つ</li>
+          </ul>
+          <p>全体として<strong>最短でも約4年</strong>が目安です。長い道のりに感じるかもしれませんが、それだけ後見業務の責任の重さを反映しています。合格直後から計画的に動き始めることが、スムーズな受任への近道です。</p>
+
+        </div>
+      </article>
+
+      <aside class="article-sidebar">
+        <div class="art-sidebar-block">
+          <h4>関連記事</h4>
+          <div class="related-item" onclick="showArticle('seido')">成年後見制度とは何か：基礎知識編</div>
+          <div class="related-item">市民後見人と専門職後見人の違い（準備中）</div>
+          <div class="related-item">成年後見人の報酬相場（準備中）</div>
+        </div>
+        <div class="art-sidebar-block">
+          <h4>この記事のキーワード</h4>
+          <div class="tag-cloud" style="margin-top:4px">
+            <span class="tag">ぱあとなあ</span>
+            <span class="tag">基礎研修</span>
+            <span class="tag">名簿登録</span>
+            <span class="tag">家庭裁判所</span>
+            <span class="tag">4年</span>
+          </div>
+        </div>
+      </aside>
+    </div>
+
+    <!-- ARTICLE: 成年後見制度とは -->
+    <div id="art-seido" class="article-layout" style="display:none">
+      <article>
+        <header class="article-header">
+          <span class="badge">基礎知識</span>
+          <h1 class="article-title">成年後見制度とは何か：社会福祉士が押さえておくべき基礎知識</h1>
+          <div class="article-meta">
+            <span>2025年3月</span>
+            <span>読了約6分</span>
+            <span>制度・基礎</span>
+          </div>
+        </header>
+
+        <div class="article-toc">
+          <div class="toc-label">目次</div>
+          <ol>
+            <li>成年後見制度が生まれた背景</li>
+            <li>法定後見制度：後見・保佐・補助の3類型</li>
+            <li>任意後見制度：本人が事前に指名する仕組み</li>
+            <li>後見人の主な役割：財産管理と身上監護</li>
+            <li>社会福祉士が選任されやすいケースとは</li>
+          </ol>
+        </div>
+
+        <div class="article-body">
+
+          <h2>成年後見制度が生まれた背景</h2>
+          <p>成年後見制度は平成12年（2000年）に誕生しました。それ以前には「禁治産・準禁治産者宣告制度」がありましたが、認定の事実が本人の戸籍に記載されるため、社会的偏見や差別につながるという問題がありました。この課題を解消し、本人の財産と権利を守るために現在の制度が設けられました。</p>
+          <p>認知症・知的障害・精神障害などにより判断能力が低下した方が、悪質な訪問販売や振り込め詐欺などの被害に遭わないよう、また必要な契約や手続きを適切に行えるよう、後見人が代わりにサポートする仕組みです。</p>
+
+          <h2>法定後見制度：後見・保佐・補助の3類型</h2>
+          <p>法定後見は、判断能力が低下した後に家庭裁判所に申し立てて後見人を選んでもらう制度です。判断能力の程度に応じて3つの類型に分かれます。</p>
+          <ul>
+            <li><strong>後見</strong>：判断能力がほとんどない状態。後見人が財産管理・契約をほぼ代行する。</li>
+            <li><strong>保佐</strong>：判断能力が著しく不十分な状態。重要な法律行為について保佐人の同意が必要。</li>
+            <li><strong>補助</strong>：判断能力が不十分な状態。特定の行為について補助人がサポート。</li>
+          </ul>
+          <p>後見人は家庭裁判所が適任者を選任します。専門職（弁護士・司法書士・社会福祉士など）が選ばれるケースが多く、特に介護・医療に関する問題を抱えるケースでは社会福祉士が選任されやすい傾向があります。</p>
+
+          <h2>任意後見制度：本人が事前に指名する仕組み</h2>
+          <p>任意後見は、本人がまだ判断能力があるうちに「将来、自分の判断能力が低下したときに後見人になってほしい人」を事前に契約で決めておく制度です。家族以外にも、社会福祉士などの第三者を指名できます。</p>
+          <div class="info-note">任意後見契約は公正証書で作成する必要があります。本人の判断能力が低下した後、家庭裁判所に任意後見監督人の選任申し立てを行うことで、効力が生じます。</div>
+
+          <h2>後見人の主な役割：財産管理と身上監護</h2>
+          <p>後見人の仕事は大きく2つに分かれます。</p>
+          <h3>財産管理</h3>
+          <p>預貯金の管理・税金や保険料の支払い・不動産の管理・遺産相続への対応など、本人の財産に関する法律行為を代行・管理します。家庭裁判所への定期的な報告（年1回程度）も義務です。</p>
+          <h3>身上監護</h3>
+          <p>介護サービスの契約・医療機関への入院手続き・施設入所の契約など、本人の生活・医療・介護に関する契約行為をサポートします。日常的な介護行為そのものは後見人の職務ではありませんが、適切なサービスにつなげることが求められます。</p>
+
+          <h2>社会福祉士が選任されやすいケースとは</h2>
+          <p>家庭裁判所は事案の内容に応じて後見人を選任します。財産上の争いがある場合は弁護士、複雑な登記や財産管理が伴う場合は司法書士が選ばれやすい一方、<strong>介護・医療・生活支援の問題を抱えるケース</strong>では社会福祉士の専門性が活かされやすいとされています。</p>
+          <p>高齢化社会の進展とともに成年後見のニーズは増大しており、社会福祉士が後見人として活躍できる機会は今後さらに広がっていくと見込まれます。</p>
+        </div>
+      </article>
+
+      <aside class="article-sidebar">
+        <div class="art-sidebar-block">
+          <h4>関連記事</h4>
+          <div class="related-item" onclick="showArticle('main')">合格後〜後見人になるまでのロードマップ</div>
+          <div class="related-item">市民後見人と専門職後見人の違い（準備中）</div>
+        </div>
+        <div class="art-sidebar-block">
+          <h4>この記事のキーワード</h4>
+          <div class="tag-cloud" style="margin-top:4px">
+            <span class="tag">法定後見</span>
+            <span class="tag">任意後見</span>
+            <span class="tag">財産管理</span>
+            <span class="tag">身上監護</span>
+            <span class="tag">家庭裁判所</span>
+          </div>
+        </div>
+      </aside>
+    </div>
+
+  </div><!-- /page-wrap -->
+</div><!-- /article-view -->
+
+<!-- FOOTER -->
+<footer class="site-footer">
+  <div class="footer-inner">
+    <span>社会福祉士のみちしるべ</span>
+    <span>© 2025 All rights reserved</span>
+  </div>
+</footer>
+
+<script>
+  function showList() {
+    document.getElementById('list-view').style.display = 'block';
+    document.getElementById('article-view').style.display = 'none';
+    window.scrollTo(0, 0);
+  }
+
+  function showArticle(id) {
+    document.getElementById('list-view').style.display = 'none';
+    document.getElementById('article-view').style.display = 'block';
+    document.querySelectorAll('.article-layout').forEach(el => el.style.display = 'none');
+    document.getElementById('art-' + id).style.display = 'grid';
+    window.scrollTo(0, 0);
+  }
+</script>
+</body>
+</html>
